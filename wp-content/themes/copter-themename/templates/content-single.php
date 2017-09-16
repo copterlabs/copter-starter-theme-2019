@@ -4,10 +4,15 @@
       <div class="row">
         <div class="copter--column copter--column__primary">
           <article <?php post_class('copter--post'); ?>>
-            <header>
+            <header class="copter--post__header">
               <h1 class="copter--post__title"><?php the_title(); ?></h1>
               <?php get_template_part('templates/entry-meta'); ?>
             </header>
+            <div class="copter--post__image">
+              <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail('750w'); ?>
+              </a>
+            </div>
             <div class="copter--post__single">
               <?php the_content(); ?>
             </div>
