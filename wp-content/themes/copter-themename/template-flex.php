@@ -3,7 +3,6 @@
  * Template Name: Copter Page Builder
  */
 
-
 if( have_rows('flexible_content') ):
     // loop through the rows of data
     while ( have_rows('flexible_content') ) : the_row();
@@ -103,5 +102,4 @@ if (isset($_GET['display_incomplete_layouts'])) {
   </div>
 
   <?php
-
 }
