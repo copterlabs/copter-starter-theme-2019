@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "admin.css": {
+      "files": [
+        "styles/admin.scss"
+      ]
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    },
+    "rellax.js": {
+      "files": [
+        "../bower_components/rellax/rellax.js"
+      ]
+    },
+    "font-awesome": {
+      "bower": ["font-awesome"]
+    }
+  },
+  "config": {
+    "devUrl": "http://themename.dev"
+  }
+}
