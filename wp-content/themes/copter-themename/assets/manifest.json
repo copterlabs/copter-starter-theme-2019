@@ -25,9 +25,16 @@
     "jquery.js": {
       "bower": ["jquery"]
     },
-    "rellax.js": {
+    "plugins.js": {
       "files": [
-        "../bower_components/rellax/rellax.js"
+        "../bower_components/rellax/rellax.js",
+        "../bower_components/swiper/dist/js/swiper.min.js",
+        "../bower_components/fitvids/jquery.fitvids.js"
+      ]
+    },
+    "plugins.css": {
+      "files": [
+        "../bower_components/swiper/dist/css/swiper.min.css"
       ]
     },
     "font-awesome": {
@@ -35,6 +42,6 @@
     }
   },
   "config": {
-    "devUrl": "http://themename.dev"
+    "devUrl": "http://copter-starter-theme.dev"
   }
 }

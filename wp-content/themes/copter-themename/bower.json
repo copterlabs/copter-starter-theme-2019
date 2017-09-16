@@ -10,7 +10,10 @@
     "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-beta",
     "popper.js": "^1.12.3",
     "font-awesome": "fontawesome#^4.7.0",
-    "rellax": "*"
+    "rellax": "*",
+    "css-hamburgers": "^0.9.1",
+    "swiper": "^3.4.2",
+    "fitvids": "^1.2.0"
   },
   "overrides": {
     "font-awesome": {

@@ -19,6 +19,19 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        $('[data-toggle="copter--navbar"]').on('click',function() {
+          $('.copter--navbar, .copter--hamburger').toggleClass('is-active');
+        });
+
+        $(".copter--page").fitVids();
+
+        if ($('.rellax').length) {
+          var rellax = new Rellax('.rellax', {
+            center: true
+          });
+        }
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

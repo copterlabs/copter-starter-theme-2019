@@ -4,9 +4,12 @@
 // bower:scss
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
+@import "../../bower_components/css-hamburgers/_sass/hamburgers/hamburgers.scss";
 // endbower
 
+@import "common/mixins";
 @import "common/global";
+@import "components/navbar";
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
