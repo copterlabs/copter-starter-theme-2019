@@ -70,8 +70,39 @@ function get_srcset($img_array) {
   return create_srcset($chunks);
 }
 
+
+
+
 function get_image_size_array($acf_image_array, $sizes_to_return = [
-  '1440w', '2880w', '1024w', '640w', '320w',
+  '1440w',
+  '1440w_2x',
+
+  '1200w',
+  '1200w_2x',
+
+  // Breakpoint: lg
+  '992w',
+  '992w_2x',
+
+  // Breakpoint: md
+  '768w',
+  '768w_2x',
+
+  // Breakpoint: sm
+  '576w',
+  '576w_2x',
+
+  // iPhone Plus
+  '414w',
+  '414w_2x',
+
+  // iPhone
+  '375w',
+  '375w_2x',
+
+  // iPhone 5
+  '320w',
+  '320w_2x'
 ]) {
   $img_array = [];
 

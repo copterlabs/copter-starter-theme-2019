@@ -27,7 +27,9 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'sage')
+    'primary_navigation' => __('Mobile Navigation', 'sage'),
+    'desktop_navigation' => __('Desktop Navigation', 'sage'),
+    'footer_navigation' => __('Footer Navigation', 'sage')
   ]);
 
   // Enable post thumbnails
@@ -35,13 +37,55 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
-  
+
   // Panel background srcset sizes
+
+  // Largest
   add_image_size('1440w', 1440);
-  add_image_size('2880w', 2880);
-  add_image_size('1024w', 1024);
-  add_image_size('640w', 640);
-  add_image_size('320w', 320);  
+  add_image_size('1440w_2x', 1440*2);
+
+  // Breakpoint: xl
+  add_image_size('1200w', 1200);
+  add_image_size('1200w_2x', 1200*2);
+
+  // Breakpoint: lg
+  add_image_size('992w', 992);
+  add_image_size('992w_2x', 992*2);
+
+  // Breakpoint: md
+  add_image_size('768w', 768);
+  add_image_size('768w_2x', 768*2);
+
+  // Breakpoint: sm
+  add_image_size('576w', 576);
+  add_image_size('576w_2x', 576*2);
+
+  // iPhone Plus
+  add_image_size('414w', 414);
+  add_image_size('414w_2x', 414*2);
+
+  // iPhone
+  add_image_size('375w', 375);
+  add_image_size('375w_2x', 375*2);
+
+  // iPhone 5
+  add_image_size('320w', 320);
+  add_image_size('320w_2x', 320*2);
+
+  add_image_size('hero_mobile', 375, 667, true);
+  add_image_size('hero_mobile_2x', 375*2, 667*2, true);
+
+  add_image_size('hero_desktop', 1440, 800, true);
+  add_image_size('hero_desktop_2x', 2880, 1600, true);
+
+  add_image_size('box_link', 245, 370, true);
+  add_image_size('box_link_2x', 245*2, 370*2, true);
+
+  add_image_size('box_link_desktop', 314, 474, true);
+  add_image_size('box_link_desktop_2x', 314*2, 474*2, true);
+
+  // add_image_size('page_title_mobile', 375, 375, true);
+  // add_image_size('page_title_mobile_2x', 375*2, 375*2, true);
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -87,12 +131,13 @@ add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 function display_sidebar() {
   static $display;
 
-  isset($display) || $display = !in_array(true, [
-    // The sidebar will NOT be displayed if ANY of the following return true.
+  isset($display) || $display = in_array(true, [
+    // The sidebar WILL be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
-    is_404(),
-    is_front_page(),
-    is_page_template('template-flex.php'),
+    // is_404(),
+    // is_front_page(),
+    // is_page_template('template-flex.php'),
+    // is_page()
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -102,13 +147,15 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
+  wp_enqueue_style('plugins/css', Assets\asset_path('styles/plugins.css'), false, null);
+
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('rellax/js', Assets\asset_path('scripts/rellax.js'), ['jquery'], null, false);
+  wp_enqueue_script('plugins/js', Assets\asset_path('scripts/plugins.js'), ['jquery'], null, false);
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
@@ -154,4 +201,20 @@ function add_product_support() {
   register_post_type( 'product', $args );
   register_taxonomy_for_object_type( 'category', 'product' );
 }
-add_action( 'init', __NAMESPACE__ . '\\add_product_support' );
+// add_action( 'init', __NAMESPACE__ . '\\add_product_support' );
+
+
+if( function_exists('acf_add_options_page') ) {
+  // add sub page
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Footer',
+    'menu_title'  => 'Footer',
+    'parent_slug'   => 'options-general.php',
+  ));
+}
+
+function new_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', __NAMESPACE__.'\\new_excerpt_more');
+

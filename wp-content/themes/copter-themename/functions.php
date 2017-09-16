@@ -33,3 +33,16 @@ unset($file, $filepath);
 function prebug($arr) {
   echo '<pre style="background: #eee; padding: 30px"><code>' . print_r($arr,true) . "</code></pre>";
 }
+
+function get_field_php($field_names) {
+  echo "<pre>";
+  foreach ($field_names as $field => $value) {
+    echo '$' . $field . " = get_sub_field('" . $field . "');\n";
+  }
+  foreach ($field_names as $field => $value) { ?>
+&#x3C;div class=&#x22;&#x3C;?= $classes-&#x3E;panel ?&#x3E;__<?= $field ?>&#x22;&#x3E;
+    &#x3C;?= $<?= $field ?> ?&#x3E;
+  &#x3C;/div&#x3E;
+  <?php }
+  echo "</pre>";
+}
