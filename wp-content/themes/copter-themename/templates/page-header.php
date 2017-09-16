@@ -1,7 +1,12 @@
 <?php use Roots\Sage\Titles; ?>
 
-<div class="copter--page__header">
+
+<section class="copter--panel copter--page__header">
   <div class="container">
-    <h1 class="copter--page__header--title"><?= Titles\title(); ?></h1>
+    <div class="row">
+      <div class="copter--column copter--column__primary">
+        <h1 class="copter--page__header--title"><?= Titles\title(); ?></h1>
+      </div>
+    </div>
   </div>
-</div>
+</section>

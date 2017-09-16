@@ -207,8 +207,8 @@ function add_product_support() {
 if( function_exists('acf_add_options_page') ) {
   // add sub page
   acf_add_options_sub_page(array(
-    'page_title'  => 'Footer',
-    'menu_title'  => 'Footer',
+    'page_title'  => 'Social',
+    'menu_title'  => 'Social',
     'parent_slug'   => 'options-general.php',
   ));
 }

@@ -16,6 +16,26 @@ body, html {
   }
 }
 
+.copter--column {
+  @include make-col-ready();
+  &__primary {
+    margin-left: auto;
+    margin-right: auto;
+    @include media-breakpoint-down(xl) {
+      @include make-col(8);
+    }
+    @include media-breakpoint-down(lg) {
+      @include make-col(9);
+    }
+    @include media-breakpoint-down(md) {
+      @include make-col(11);
+    }
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+  }
+}
+
 .btn {
   border-width: 2px;
   font-size: 1.3rem;
