@@ -1,0 +1,274 @@
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+
+@mixin responsive-bg($map) {
+  // build out mixin for responsive background
+  // images using grid breakpoints and the "each"
+  // scss loop thingy
+}
+
+@mixin panel-title($color: $black) {
+  color: $color;
+  text-transform: uppercase;
+  text-align: center;
+  //white-space: nowrap;
+  margin-bottom: 1.5rem;
+  small {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    display: block;
+    line-height: 1.4;
+    @include media-breakpoint-up(md) {
+      font-size: 1.15rem * 1.2;
+    }
+  }
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.25rem;
+  line-height: 1.1428571429;
+  @include media-breakpoint-up(sm) {
+    font-size: 1.75rem * 1.35;
+  }
+}
+
+@mixin panel-description($color: $black) {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: $color;
+  a {
+    text-decoration: underline;
+  }
+}
+
+@mixin panel-header($color: $black) {
+  &__title {
+    @include panel-title($color);
+  }
+  &__description {
+    @include panel-description($color);
+  }
+}
+
+@mixin box-link-title {
+  > a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    > img {
+      position: relative;
+      // left: 50%;
+      // transform: translateX(-50%);
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    // Style for "TRAINING"
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      @include media-breakpoint-up(lg) {
+        font-size: 1.3rem;
+      }
+    }
+    p {
+      font-size: 0.65rem;
+      border-bottom: double 3px #fff;
+      display: inline-block;
+    }
+  }
+}
+
+
+
+@mixin read-more() {
+  &__read_more {
+    // Style for "READ MORE"
+    text-align: center;
+    margin: 0.5rem 0 2rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-bottom: solid 1px $gray-lightest;
+    a, span {
+      color: inherit;
+      vertical-align: middle;
+    }
+    @include media-breakpoint-up(lg) {
+      border-bottom: none;
+    }
+  }
+}
+
+@mixin image() {
+  @include clearfix;
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto 0.75rem;
+      @include media-breakpoint-up(lg) {
+        width: 40%;
+        float: left;
+        margin-right: 2rem;
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
+
+@mixin page-title {
+  background-color: #000;
+  // @include img-retina('../images/bg-schedule.jpg','../images/bg-schedule@2x.jpg', '', '');
+  background-size: cover;
+  background-position: center top;
+  &__content {
+    padding-top: 6rem;
+    min-height: 375px;
+    @extend .align-items-end;
+    @include media-breakpoint-up(md) {
+      min-height: 0;
+    }
+  }
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    @include media-breakpoint-up(sm) {
+      font-size: 3.2rem;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 3.8rem;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    background: #000;
+    .copter--panel--bg {
+      display: none;
+    }
+  }
+}
+
+@mixin content-styles() {
+  &__post_content {
+    h2 {
+      font-size: 140%;
+      line-height: 1.5;
+      margin-top: 1.5em;
+    }
+
+    h3 {
+      margin-top: 2.5em;
+      margin-bottom: 0.75em;
+      font-size: 122%;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      align-self: center;
+      @include media-breakpoint-up(sm) {
+        &.alignleft,
+        &.alignright {
+          max-width: 50%;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 1em;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+      }
+    }
+
+    ul {
+      padding-left: 1.5em;
+      line-height: 2;
+      font-size: 0.9rem;
+
+      li {
+        position: relative;
+        list-style: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: -1.25em;
+          top: calc(50% - 0.125em);
+          display: block;
+          width: 0.5rem;
+          height: 0.5rem;
+          background-color: theme-color("primary");
+        }
+      }
+    }
+
+    ol {
+      padding-left: 1.5em;
+      font-size: 0.9rem;
+
+      li {
+        margin-bottom: 1em;
+      }
+    }
+
+
+    blockquote {
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: solid 5px rgba($blue, 0.5);
+    }
+
+    .wp-caption.aligncenter {
+      margin-top: 2rem;
+
+      @include media-breakpoint-up(lg) {
+        width: calc(100% + 200px);
+        margin-left: -100px;
+        margin-top: 3rem;
+
+        img,
+        .wp-caption-text {
+          width: calc(100% + 200px);
+          max-width: calc(100% + 200px);
+        }
+
+        img {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
