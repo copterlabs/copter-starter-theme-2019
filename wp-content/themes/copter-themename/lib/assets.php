@@ -72,8 +72,47 @@ function get_srcset($img_array) {
 
 
 
+function get_image_size_array($image_id, $sizes_to_return = [
+  '1440w',
+  '1440w_2x',
 
-function get_image_size_array($acf_image_array, $sizes_to_return = [
+  '1200w',
+  '1200w_2x',
+
+  // Breakpoint: lg
+  '992w',
+  '992w_2x',
+
+  // Breakpoint: md
+  '768w',
+  '768w_2x',
+
+  // Breakpoint: sm
+  '576w',
+  '576w_2x',
+
+  // iPhone Plus
+  '414w',
+  '414w_2x',
+
+  // iPhone
+  '375w',
+  '375w_2x',
+
+  // iPhone 5
+  '320w',
+  '320w_2x'
+]) {
+  $img_array = [];
+  foreach ($sizes_to_return as $size) {
+    $size_array = wp_get_attachment_image_src($image_id, $size);
+    $img_array[$size] = $size_array[0];
+  }
+  return $img_array;
+}
+
+
+function get_acf_image_size_array($acf_image_array, $sizes_to_return = [
   '1440w',
   '1440w_2x',
 
@@ -115,6 +154,9 @@ function get_image_size_array($acf_image_array, $sizes_to_return = [
 
   return $img_array;
 }
+
+
+
 
 function get_img_markup_with_srcset($img_array, $attrs = [
   'class' => '',

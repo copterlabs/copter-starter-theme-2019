@@ -11,25 +11,33 @@
   endif;
   ?>
   <ul class="copter--navbar__social list-inline">
-    <li class="list-inline-item">
-      <a href="<?= get_field('facebook_url','options') ?>" title="<?php bloginfo('name'); ?> Facebook">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a href="<?= get_field('twitter_url','options') ?>" title="<?php bloginfo('name'); ?> Twitter">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a href="<?= get_field('instagram_url','options') ?>" title="<?php bloginfo('name'); ?> Instagram">
-        <i class="fa fa-instagram"></i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a href="<?= get_field('youtube_url','options') ?>" title="<?php bloginfo('name'); ?> YouTube">
-        <i class="fa fa-youtube"></i>
-      </a>
-    </li>
+    <?php if (get_field('facebook_url','options')): ?>
+      <li class="list-inline-item">
+        <a href="<?= get_field('facebook_url','options') ?>" title="<?php bloginfo('name'); ?> Facebook">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+    <?php endif; ?>
+    <?php if (get_field('twitter_url','options')): ?>
+      <li class="list-inline-item">
+        <a href="<?= get_field('twitter_url','options') ?>" title="<?php bloginfo('name'); ?> Twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    <?php endif; ?>
+    <?php if (get_field('instagram_url','options')): ?>
+      <li class="list-inline-item">
+        <a href="<?= get_field('instagram_url','options') ?>" title="<?php bloginfo('name'); ?> Instagram">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </li>
+    <?php endif; ?>
+    <?php if (get_field('youtube_url','options')): ?>
+      <li class="list-inline-item">
+        <a href="<?= get_field('youtube_url','options') ?>" title="<?php bloginfo('name'); ?> YouTube">
+          <i class="fa fa-youtube"></i>
+        </a>
+      </li>
+    <?php endif; ?>
   </ul>
 </nav>

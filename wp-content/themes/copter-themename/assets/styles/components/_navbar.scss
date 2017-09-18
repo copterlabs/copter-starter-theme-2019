@@ -62,7 +62,6 @@
   &--inline {
     @extend .d-lg-flex;
     @extend .justify-content-between;
-    width: 100%;
     &__menu {
       @extend .list-inline;
       margin: 0;
@@ -120,6 +119,9 @@
           }
         }
       }
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
     }
     &__social {
       margin-left: 1rem;
@@ -136,9 +138,9 @@
           }
         }
       }
-    }
-    @include media-breakpoint-down(md) {
-      display: none;
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
     }
   }
 }
