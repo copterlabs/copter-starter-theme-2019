@@ -199,97 +199,99 @@
   }
 }
 
+@mixin responsive-font-size($size: 110%) {
+  font-size: $size;
+  @include media-breakpoint-down(lg) {
+    font-size: $size - 10%;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: $size - 15%;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: $size - 20%;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: $size - 25%;
+  }
+}
+
 @mixin content-styles() {
-  &__post_content {
-    h2 {
-      font-size: 140%;
-      line-height: 1.5;
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    line-height: 1.5;
+  }
+  h1 { @include responsive-font-size(185%) }
+  h2 { @include responsive-font-size(170%) }
+  h3 { @include responsive-font-size(155%) }
+  h4 { @include responsive-font-size(140%) }
+  h5 { @include responsive-font-size(125%) }
+  h6 { @include responsive-font-size(110%) }
+  p {
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+    @include responsive-font-size(110%);
+  }
+  ul {
+    padding-left: 1.5em;
+    line-height: 2;
+    @include responsive-font-size(110%);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    li {
+      position: relative;
+      list-style: none;
+      margin-top: 0.5em;
+      &::before {
+        content: '';
+        position: absolute;
+        left: -1em;
+        top: calc(50% - 0.125em);
+        display: block;
+        width: 0.35rem;
+        height: 0.35rem;
+        background-color: theme-color("primary");
+      }
+    }
+  }
+  ol {
+    padding-left: 1.5em;
+    line-height: 2;
+    @include responsive-font-size(110%);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    li {
+      margin-top: 0.5em;
+    }
+  }
+  blockquote {
+    padding: 0 1rem;
+    margin-top: 1.5em;
+    border-left: solid 5px rgba(theme-color("primary"), 0.5);
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+    @include media-breakpoint-up(sm) {
+      &.alignleft,
+      &.alignright {
+        max-width: 50%;
+      }
+    }
+  }
+  .wp-caption.aligncenter {
+    margin-top: 1.5em;
+    @include media-breakpoint-up(lg) {
+      width: calc(100% + 200px);
+      margin-left: -100px;
       margin-top: 1.5em;
-    }
-
-    h3 {
-      margin-top: 2.5em;
-      margin-bottom: 0.75em;
-      font-size: 122%;
-      line-height: 1.5;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      align-self: center;
-      @include media-breakpoint-up(sm) {
-        &.alignleft,
-        &.alignright {
-          max-width: 50%;
-        }
-      }
-    }
-
-    p {
-      margin-bottom: 1em;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      @include media-breakpoint-up(lg) {
-        font-size: 1rem;
-      }
-    }
-
-    ul {
-      padding-left: 1.5em;
-      line-height: 2;
-      font-size: 0.9rem;
-
-      li {
-        position: relative;
-        list-style: none;
-
-        &::before {
-          content: '';
-          position: absolute;
-          left: -1.25em;
-          top: calc(50% - 0.125em);
-          display: block;
-          width: 0.5rem;
-          height: 0.5rem;
-          background-color: theme-color("primary");
-        }
-      }
-    }
-
-    ol {
-      padding-left: 1.5em;
-      font-size: 0.9rem;
-
-      li {
-        margin-bottom: 1em;
-      }
-    }
-
-
-    blockquote {
-      padding: 1rem;
-      margin-top: 1rem;
-      border-left: solid 5px rgba($blue, 0.5);
-    }
-
-    .wp-caption.aligncenter {
-      margin-top: 2rem;
-
-      @include media-breakpoint-up(lg) {
+      img,
+      .wp-caption-text {
         width: calc(100% + 200px);
-        margin-left: -100px;
-        margin-top: 3rem;
-
-        img,
-        .wp-caption-text {
-          width: calc(100% + 200px);
-          max-width: calc(100% + 200px);
-        }
-
-        img {
-          margin: 0;
-        }
+        max-width: calc(100% + 200px);
+      }
+      img {
+        margin: 0;
       }
     }
   }
