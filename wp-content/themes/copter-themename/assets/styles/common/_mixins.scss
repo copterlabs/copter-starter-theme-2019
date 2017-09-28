@@ -239,18 +239,17 @@
     margin-bottom: 1em;
     li {
       position: relative;
-      list-style: none;
       margin-top: 0.5em;
-      &::before {
-        content: '';
-        position: absolute;
-        left: -1em;
-        top: calc(50% - 0.125em);
-        display: block;
-        width: 0.35rem;
-        height: 0.35rem;
-        background-color: theme-color("primary");
-      }
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   left: -1em;
+      //   top: calc(50% - 0.125em);
+      //   display: block;
+      //   width: 0.35rem;
+      //   height: 0.35rem;
+      //   background-color: theme-color("primary");
+      // }
     }
   }
   ol {

@@ -72,21 +72,6 @@ function setup() {
   add_image_size('320w', 320);
   add_image_size('320w_2x', 320*2);
 
-  add_image_size('hero_mobile', 375, 667, true);
-  add_image_size('hero_mobile_2x', 375*2, 667*2, true);
-
-  add_image_size('hero_desktop', 1440, 800, true);
-  add_image_size('hero_desktop_2x', 2880, 1600, true);
-
-  add_image_size('box_link', 245, 370, true);
-  add_image_size('box_link_2x', 245*2, 370*2, true);
-
-  add_image_size('box_link_desktop', 314, 474, true);
-  add_image_size('box_link_desktop_2x', 314*2, 474*2, true);
-
-  // add_image_size('page_title_mobile', 375, 375, true);
-  // add_image_size('page_title_mobile_2x', 375*2, 375*2, true);
-
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
   add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
@@ -218,3 +203,6 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', __NAMESPACE__.'\\new_excerpt_more');
 
+// Disable Gravity Forms CSS in favor of SCSS
+// https://github.com/wpsitecare/gravity-forms-scss
+add_filter( 'pre_option_rg_gforms_disable_css', '__return_true' );
