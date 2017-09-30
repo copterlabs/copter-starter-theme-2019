@@ -6,7 +6,7 @@
 if( have_rows('flexible_content') ):
     // loop through the rows of data
     while ( have_rows('flexible_content') ) : the_row();
-        include('templates/flex/'.get_row_layout().'.php');
+        include('templates/blocks/'.get_row_layout().'.php');
     endwhile;
 endif;
 
