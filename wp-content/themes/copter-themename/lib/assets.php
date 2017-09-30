@@ -72,7 +72,7 @@ function get_srcset($img_array) {
 
 
 
-function get_image_size_array($image_id, $sizes_to_return = [
+function get_image_size_array_by_id($image_id, $sizes_to_return = [
   '1440w',
   '1440w_2x',
 
