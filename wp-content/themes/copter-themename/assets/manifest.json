@@ -27,6 +27,7 @@
     },
     "plugins.js": {
       "files": [
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.js",
         "../bower_components/rellax/rellax.js",
         "../bower_components/swiper/dist/js/swiper.min.js",
         "../bower_components/fitvids/jquery.fitvids.js"
