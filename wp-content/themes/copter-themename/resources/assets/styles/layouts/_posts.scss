@@ -1,0 +1,20 @@
+.posts-navigation {
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    .nav-previous {
+      margin-right: auto;
+      a {
+        @extend .btn;
+        @extend .btn-light;
+      }
+    }
+    .nav-next {
+      margin-left: auto;
+      a {
+        @extend .btn;
+        @extend .btn-light;
+      }
+    }
+  }
+}

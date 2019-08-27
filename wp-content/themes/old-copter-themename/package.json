@@ -1,0 +1,65 @@
+{
+  "name": "sage",
+  "version": "8.5.2",
+  "author": "Ben Word <ben@benword.com>",
+  "homepage": "https://roots.io/sage/",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/roots/sage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roots/sage/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "build": "bower install && gulp",
+    "jshint": "gulp jshint",
+    "jscs": "jscs gulpfile.js assets/scripts/*.js",
+    "test": "snyk test"
+  },
+  "engines": {
+    "node": ">= 4.5"
+  },
+  "devDependencies": {
+    "asset-builder": "latest",
+    "browser-sync": "latest",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-changed": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssnano": "latest",
+    "gulp-flatten": "latest",
+    "gulp-if": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-jshint": "latest",
+    "gulp-less": "latest",
+    "gulp-plumber": "latest",
+    "gulp-rename": "latest",
+    "gulp-rev": "latest",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "imagemin-pngcrush": "latest",
+    "jshint": "latest",
+    "jshint-stylish": "latest",
+    "lazypipe": "latest",
+    "merge-stream": "latest",
+    "minimist": "latest",
+    "run-sequence": "latest",
+    "traverse": "latest",
+    "wiredep": "latest",
+    "snyk": "latest"
+  },
+  "dependencies": {
+    "bootstrap": "latest",
+    "npm": "latest",
+    "popper.js": "latest"
+  }
+}
