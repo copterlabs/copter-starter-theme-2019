@@ -1,5 +1,5 @@
 # Copter Starter Theme
 
-Version 2.0
+Version 4.0
 
-Based on Sage 8.5.3, uses Bootstrap 4.0.0 via NPM
+Based on Sage 9.0.9, uses Bootstrap 4.1.3 via NPM
